@@ -1,0 +1,34 @@
+<!-- Main content -->
+<section class="content">
+
+	<a href="" onclick="goBack()">Back</a>
+
+	<div class="container">          
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Schedule</th>
+	        <th>Sell amount</th>
+	        <th>Buy amount</th>
+	        <th>Settlement Dates</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="schedule in schedules">
+	        <td>{{schedule.frequency}}</td>
+	        <td>{{schedule.buyorderamountccy}} {{schedule.buyamount}}</td>
+	        <td>{{schedule.sellorderamountccy}} {{schedule.sellamount}}</td>
+	        <td>{{schedule.startdate}}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+
+
+</section>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

@@ -1,0 +1,48 @@
+<!-- Main content -->
+<div class="container">
+    <a href="#/custconfirmations">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | 
+    <a href="#/custconfirmations_swap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | 
+    <b>Forex Forward <span class="label label-info">{{forwardnotification}}</span></b> | 
+    <a href="#/custconfirmations_mm"> Money markets <span class="label label-info">{{mmnotification}}</span></a>
+</div>
+<h3>Forward Confimations</h3>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Order id</th>
+                                    <th>Bank Name</th>
+                                    <th>CCY pair</th>
+                                    <th>Buy/Sell</th>
+                                    <th>Deal details</th>
+                                    <th>Schedule</th>
+                                    <th>No of schedules</th>
+                                    <th>Settlement start date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in toconfirmoffers">
+                                    <td><a class="btn btn-warning" href="#/confirmofferforward/{{ord.offerid}}"><i class="fa fa-check"></i>Confirm</a></td>
+                                    <td>{{ord.orderidfk}}</td>
+                                    <td>{{ord.offeredby}}</td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>{{ord.buysell}}</td>
+                                    <td>
+                                        <p>{{ord.recbank}} amount: {{ord.orderamountccy}} {{ord.orderamount | number}}</p>
+                                        <p>Rate: {{ord.finalrate | number}}</p>
+                                        <p>{{ord.paybank}} amount: {{ord.settlementamountccy}} {{ord.settlementamount}}</p>
+                                    </td>
+                                    <td>{{ord.freq}}</td>
+                                    <td>{{ord.freqnum}}</td>
+                                    <td>{{ord.startdate}}</td>
+                                </tr>
+                                </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>

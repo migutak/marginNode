@@ -1,0 +1,66 @@
+<style type="text/css">
+    li {list-style-type: none;}
+</style>
+<div class="container">
+    <a href="#/payments">Forex Spot <span class="label label-info">{{payments_spot_notification}}</span></b> | 
+    <a href="#/paymentswap">Forex Swap <span class="label label-info">{{payments_swap_notification}}</span></a> | 
+    <a href="#/paymentforward">Forex Forward <span class="label label-info">{{payments_forward_notification}}</span></a> |
+    <b> Money Markets <span class="label label-danger">{{payments_mm_notification}}</span></b>
+</div> 
+<h3></h3>
+        <div class="container">
+            <ul>
+                <li class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">Money market payments <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="" ng-click="archiveBtn_mm('ALL')">ALL<span class="label label-success">{{all_mm_notification}}</span></a></li>
+                    <li><a href="" ng-click="archiveBtn_mm('PAID')">Paid <span class="label label-success">{{paid_mm_notification}}</span></a></li>
+                    <li><a href="" ng-click="archiveBtn_mm('NOT PAID')">Not Paid <span class="label label-success">{{notpaid_mm_notification}}</span></a></li>
+                  </ul>
+                </li>
+            </ul>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Confirmed Deals</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                          <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <th>Bank name</th>
+                              <th>Type</th>
+                              <th>Order amount</th>
+                              <th>Tenor in days</th>
+                              <th>Status</th>
+                              <th>From</th>
+                              <th>To</th>
+                              <th>Payment</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="c in custmmpay">
+                              <td><a href="">{{c.orderidfk}}</a></td>
+                              <td>{{c.usernamefk}}</td>
+                              <td>{{c.mmtype}}</td>
+                              <td>{{c.ccy}} {{c.orderamount | number}}</td>
+                              <td>{{c.tenuredays}}</td>
+                              <td><span class="label label-success">{{c.confirm}}</span></td>
+                              <td>{{c.mmfrom}}</td>
+                              <td>{{c.mmto}}</td>
+                              <td>
+                                <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" ng-click="paymm(c.offerid)">
+                                        <span class="glyphicon glyphicon-ok"></span> Pay
+                                    </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>

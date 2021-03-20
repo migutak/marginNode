@@ -1,0 +1,61 @@
+            <h3>
+              Forex Spot
+              <small>{{}}</small>
+            </h3>
+
+<div class="container">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Confirmed Deals</h3>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-reorder"></i> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a ng-click="$event.preventDefault();archiveBtn_spot('ALL')" href="">All</a></li>
+                      <li><a ng-click="$event.preventDefault();archiveBtn_spot('PAID')" href="">Confimed Paid</a></li>
+                      <li><a ng-click="$event.preventDefault();archiveBtn_spot('NOTPAID')" href="">Not Paid</a></li>
+                    </ul>                   
+                  </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                          <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <th>Customer name</th>
+                              <th>CCY Pair</th>
+                              <th>Buy/Sell</th>
+                              <th>Order amount</th>
+                              <th>Settlement amount</th>
+                              <th>Status</th>
+                              <th>Settlement date</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="c in confirmedoffers">
+                              <td><a href="">{{c.orderidfk}}</a></td>
+                              <td>{{c.usernamefk}}</td>
+                              <td>{{c.ccypair}}</td>
+                              <td>{{c.buysell}}</td>
+                              <td>{{c.orderamountccy}} {{c.orderamount | number}}</td>
+                              <td>{{c.settleamount | number}}</td>
+                              <td><span class="label label-success">{{c.status}}</span></td>
+                              <td>{{c.settlementdate}}</td>
+                              <td>
+                                <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" ng-click="payspot(c.offerid)">
+                                        <span class="glyphicon glyphicon-ok"></span> confirm
+                                    </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>

@@ -1,0 +1,117 @@
+<!-- Main content -->
+<section class="container">
+<i class="fa fa-arrow-left"></i> <a href="#/homemoneymarket">Back</a>
+<div class="row">
+            	<div class="cloading"></div>
+                <form ng-submit="accept()" method="post" id="mmorderform" class="form-horizontal">
+                	
+	                <div class="form-group">
+				        <label class="col-xs-3 control-label">Type</label>
+				        <div class="col-xs-5 selectContainer">
+				            <input type="text" class="form-control" ng-model="acceptoffermm.mmtype" disabled>
+				        </div>
+				    </div>
+				    
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">From:</label>
+				    	<div class="col-xs-5 selectContainer">
+                            <input type="text" class="form-control" id="mmfrom" name="mmfrom" ng-model="acceptoffermm.mmfrom" required/>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">To:</label>
+				    	<div class="col-xs-5 selectContainer">
+                            <input type="text" class="form-control" id="mmto" name="mmto" ng-model="acceptoffermm.mmto" required/>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Tenor Days</label>
+				        <div class="col-xs-5 selectContainer">
+				            <input type="text" class="form-control" ng-model="acceptoffermm.tenuredays" disabled>
+				        </div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptoffermm.ccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptoffermm.orderamount" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Offered Rate %</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <input type="text" class="form-control" ng-model="acceptoffermm.fixedrate" disabled>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Total Interest</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptoffermm.ccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptoffermm.totalinterest_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Withholding Tax</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptoffermm.ccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptoffermm.tax_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Net Interest</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptoffermm.ccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptoffermm.netinterest" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Net Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptoffermm.ccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptoffermm.netamount_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Offered By (Bank)</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <input type="text" class="form-control" ng-model="acceptoffermm.offeredby" disabled>
+				    	</div>
+				    </div>
+				    
+                    <div class="form-group">
+                    	<label class="col-xs-3 control-label">Bank Comment</label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="acceptoffermm.bankcomment" disabled></textarea>
+                    	</div>
+                    </div>
+                    <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<a class="btn btn-danger" href="#/homemoneymarket">Cancel</a> 
+                    		<button type="submit" class="btn btn-primary">Accept</button>
+                    		<img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                    	</div>
+                    </div>
+                </form>
+            </div>
+</section>

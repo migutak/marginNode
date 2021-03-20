@@ -1,0 +1,186 @@
+<!-- Main content -->
+<section class="content">
+<i class="fa fa-arrow-left"></i> <a href="#/custconfirmations_swap">Back</a>
+    <div class="row">
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-12" align="right" ><img src="images/Diamond_Bank_Logo.jpg" height="100" width="242"></img></div>
+        	</div>
+        	
+        	<h2>FOREIGN EXCHANGE SWAP CONFIRMATION</h2>
+
+        	<p>
+        		Date: {{booking.createdate}}
+        	</p>
+        	<br>
+        	<div class="row">
+        		<div class="col-md-3">To:</div>
+        		<div class="col-md-3">{{booking.usernamefk}}</div>
+        		<div class="col-md-3">From:</div>
+        		<div class="col-md-3">{{booking.recipient}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Attention:</div>
+        		<div class="col-md-3">Finance Department</div>
+        		<div class="col-md-3">Attention:</div>
+        		<div class="col-md-3">Operations</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Fax:</div>
+        		<div class="col-md-3"></div>
+        		<div class="col-md-3">Tel:</div>
+        		<div class="col-md-3">+254 2012345678</div>
+        	</div>
+        	
+        	
+        	<h3>Subject:	Foreign Exchange Swap Transaction (Deal No: {{booking.orderidfk}})</h3>
+        	<p>
+        		1.	This “Trade Notification” confirms and notifies the Counterparty of the terms and conditions of the Transaction referred to above and entered into on the Trade Date specified below (the “Transaction”). 
+				<br>
+				2.	The terms and conditions of the Bank’s standard Direct Dealing Mandate (“Mandate”) will be incorporated by reference, and will govern the Transaction, whether the Mandate was signed by the Counterparty or not.
+				<br>
+				3.	The Counterparty must provide the Bank with its signed Payment Instructions on or before the Settlement Date. In the event that the Counterparty does not provide the Payment Instructions or cancel the Transaction, the Counterparty indemnifies the Bank, and will be liable for the Bank’s reversal/cancellation costs.   
+				<br>
+			<b>4.	General Terms:</b>	
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Trade Date and Time:</div>
+        		<div class="col-md-2">{{booking.createdate}}</div>
+        	</div>
+        	<div class="row">__________ Near Leg __________</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount/Ccy payable by the Bank:</div>
+        		<div class="col-md-2">{{booking.nearsellorderamountccy}} {{booking.nearsellorderamount}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount/Ccy payable by the Customer:</div>
+        		<div class="col-md-2">{{booking.nearbuyorderamountccy}} {{booking.nearbuyorderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Near Date:</div>
+        		<div class="col-md-2">{{booking.neardate}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
+        	</div>
+        	<div class="row">__________ Far  Leg __________</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount/Ccy payable by the Bank:</div>
+        		<div class="col-md-2">{{booking.farsellorderamountccy}} {{booking.farsellorderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount/Ccy payable by the Customer:</div>
+        		<div class="col-md-2">{{booking.farbuyorderamountccy}} {{booking.farbuyorderamount}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Far Date:</div>
+        		<div class="col-md-2">{{booking.fardate}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
+        	</div>
+        	<p>
+        		<b>5.	Settlement Details:</b><br><br>
+        	</p>
+        	<div class="row">__________ Near  Leg __________</div>
+        	<p><b>We RECEIVE {{booking.nearbuyorderamountccy}} as below:</b></p>
+        	<div class="row">
+        		<div class="col-md-3">Account Name :</div>
+        		<div class="col-md-2">{{booking.recipient}} Bank</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Our SWIFT code:</div>
+        		<div class="col-md-2">XYZNKENX</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Account Number:</div>
+        		<div class="col-md-2">10000012345</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Correspondent bank:</div>
+        		<div class="col-md-2">Central Bank of Kenya</div>
+        	</div>
+        	<br>
+        	<p>
+        		<b>We PAY {{booking.nearsellorderamountccy}} as below:</b>
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Account Name:</div>
+        		<div class="col-md-2">{{booking.usernamefk}} Ltd</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Account Number:</div>
+        		<div class="col-md-2">000987654321</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Beneficiary Bank:</div>
+        		<div class="col-md-2">Standard Chartered Bank, Kenya Ltd</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">SWIFT code:</div>
+        		<div class="col-md-2">SCBLKENX</div>
+        	</div>
+        	<div class="row">__________ Far  Leg __________</div>
+        	<p>
+        		<b>We RECEIVE {{booking.nearsellorderamountccy}} as below:</b>
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Account Name :</div>
+        		<div class="col-md-2">{{booking.recipient}} Bank</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Our SWIFT code:</div>
+        		<div class="col-md-2">XYZNKENX</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Account Number:</div>
+        		<div class="col-md-2">10000012345</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Correspondent bank:</div>
+        		<div class="col-md-2">Central Bank of Kenya</div>
+        	</div>
+        	<p>
+        		<b>We PAY {{booking.farsellorderamountccy}} as below:</b>
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Account Name:</div>
+        		<div class="col-md-2">{{booking.usernamefk}} Ltd</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Account Number:</div>
+        		<div class="col-md-2">000987654321</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Beneficiary Bank:</div>
+        		<div class="col-md-2">Standard Chartered Bank, Kenya Ltd</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">SWIFT code:</div>
+        		<div class="col-md-2">SCBLKENX</div>
+        	</div>
+        	<br>
+        	<p>
+        		6.	Settlement will be on a Delivery Versus Payment mode. The bank undertakes to pay the customer immediately we sight the corresponding credit, without fail.
+        	</p>
+        	<p>
+        		Kindly confirm that the details of these deals are correct by approving and returning to us.
+        	</p>
+        	<p>
+        		………………………………… <br>                                    
+				<h5>Confirmed below </h5>
+        	</p>
+        	
+			<div class="row">
+				<div class="col-md-3">
+					<select class="form-control" ng-model="booking.confirm">
+					    <option>Accept</option>
+						<option>Reject</option>
+					</select>
+				</div>
+				<form ng-submit="accept()" ng-show="showAccept">
+					<input class="btn btn-success" type="submit" value="Accept"/>
+				</form>
+				<form ng-submit="reject()" ng-show="showReject" name='confirmbookingfrm'>
+					<input type="text" name="rejectreason" placeholder="reason" ng-model="reject.rejectreason" required/>
+					<input class="btn btn-danger" type="submit" value="Reject" ng-disabled="confirmbookingfrm.$invalid"/>
+				</form>
+        	</div>
+        	
+		</div>
+    </div>
+</section>

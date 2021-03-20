@@ -1,0 +1,117 @@
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" ng-submit="newOffer()" autocomplete="off" name="newofferForm">
+                <div class="box-body">
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label for="usernamefk">Counter Party</label>
+                    		    <input class="form-control" type="text" id="usernamefk" ng-model="newoffer.usernamefk" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Buy/Sell</label>
+                                <input type="text" class="form-control" id="buysellbank" ng-model="newoffer.buysellbank" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Currency Pair</label>
+                                <input type="text" class="form-control" id="ccypair" ng-model="newoffer.ccypair" required ng-disabled=true>
+                    		</div>
+                    </div>
+                        <div class="row">
+                    		
+                    		<div class="col-md-3">
+                    		    <label>Near Spot</label>
+                                <input type="text" class="form-control" id="spotrate" ng-model="newoffer.spotrate" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Margin</label>
+                                <input type="text" class="form-control" id="magin" ng-model="newoffer.magin" ng-blur="fill()" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Offered Rate</label>
+                                <input type="text" class="form-control" id="offeredrate" ng-model="newoffer.offeredrate" required ng-disabled=true>
+                    		</div>
+                    	</div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label>Order Type</label>
+                                <input type="text" class="form-control" id="ordertypefk" ng-model="newoffer.ordertypefk" required ng-disabled=true>
+                    		</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>{{newoffer.buy_sell1}} Amount and Currency</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                            {{newoffer.ccypair | limitTo:holder}}
+                                    </div>
+                                    <input type="text" class="form-control" id="amount" ng-model="newoffer.orderamount" ng-disabled=true>
+                                </div>
+                            </div>
+                    	</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>{{newoffer.buy_sell}} Amount and Currency</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            {{newoffer.ccypair | limitTo:-holder}}
+                                        </div>
+                                        <input type="text" class="form-control" id="settleamount" ng-model="newoffer.settleamount" required ng-disabled=true>
+                                    </div>
+                                </div>
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Order Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newoffer.orderdate" required ng-disabled=true></input>
+                                    </div>
+                                </div>
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <!-- Date dd/mm/yyyy -->
+                                <div class="form-group">
+                                    <label>Settlement Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newoffer.settlementdate" required ng-disabled=true></input>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                    		</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Customer Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newoffer.custcomment" ng-disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Bank Comment</label>
+                            <textarea class="form-control" id="offercomment" ng-model="newoffer.offercomment"></textarea>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+                <div>
+                    <a href="#/" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-primary" ng-disabled="newofferForm.$invalid">Submit</button> 
+                    <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</section>

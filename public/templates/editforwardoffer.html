@@ -1,0 +1,122 @@
+<!-- Main content -->
+<i class="fa fa-arrow-left"></i> <a href="#/offersforward">Back</a>
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" ng-submit="updateforwardOffer()" autocomplete="off" name="newofferForm">
+                <div class="box-body">
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label for="usernamefk">Counter Party</label>
+                    		    <input class="form-control" type="text" id="usernamefk" ng-model="newforwardoffer.usernamefk" ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Buy/Sell</label>
+                                <input type="text" class="form-control" id="buysellbank" ng-model="newforwardoffer.buysellbank" ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Currency Pair</label>
+                                <input type="text" class="form-control" id="ccypair" ng-model="newforwardoffer.ccypair" ng-disabled=true>
+                    		</div>
+                    </div>
+                        <div class="row">
+                    		
+                    		<div class="col-md-3">
+                    		    <label>Forward Rate</label>
+                                <input type="text" class="form-control" id="forwardrate" ng-model="newforwardoffer.spot" ng-blur="fill()" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Margin</label>
+                                <input type="text" class="form-control" id="magin" ng-model="newforwardoffer.magin" ng-blur="fill()">
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Final Rate</label>
+                                <input type="text" class="form-control" id="finalrate" ng-model="newforwardoffer.finalrate" required ng-disabled=true>
+                    		</div>
+                    	</div>
+                    <div class="row">
+                        <div class="col-md-3">
+                    		<label>BUY amount and Currency</label>
+                    		<div class="input-group">
+    				    			<div class="input-group-addon">
+                                        {{newforwardoffer.buyorderamountccy}}
+                                    </div>
+    				    			<input type="text" class="form-control" ng-model="newforwardoffer.buyorderamount" disabled>
+    				    	</div>
+                    	</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">
+                    		    <label>SELL amount and Currency</label>
+                                <div class="input-group">
+    				    			<div class="input-group-addon">
+                                        {{newforwardoffer.sellorderamountccy}}
+                                    </div>
+    				    			<input type="text" class="form-control" ng-model="newforwardoffer.sellorderamount" disabled>
+    				    		</div>
+                    		</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">
+                    		    <label>Settlement amount</label>
+                                <div class="input-group">
+    				    			<div class="input-group-addon">
+                                        {{newforwardoffer.settlementamountccy}}
+                                    </div>
+    				    			<input type="text" class="form-control" ng-model="newforwardoffer.settlementamount" >
+    				    		</div>
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <!-- Date dd/mm/yyyy -->
+                                <div class="form-group">
+                                    <label>Order Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newforwardoffer.orderdate" required ng-disabled=true></input>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <!-- Date dd/mm/yyyy -->
+                                <div class="form-group">
+                                    <label>Settlement Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newforwardoffer.startdate" required ng-disabled=true></input>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                    		</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Customer Comment</label>
+                            <textarea class="form-control" id="custcomment" ng-model="newforwardoffer.custcomment" ng-disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Bank Comment</label>
+                            <textarea class="form-control" id="custcomment" ng-model="newforwardoffer.bankcomment"></textarea>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+                <div>
+                    <a href="" class="btn btn-danger" ng-click="btnCancel()" ng-show="showedit">Cancel</a>
+                    <button type="submit" class="btn btn-info" ng-disabled="newofferForm.$invalid" ng-show="showedit">Update</button>
+                    <a href="" class="btn btn-info" ng-click="btnEdit()" ng-show="!showedit">Edit</a>
+                    <a href="" class="btn btn-danger" ng-click="deleteOffer()" ng-show="!showedit">Withdraw</a>
+                    <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</section>

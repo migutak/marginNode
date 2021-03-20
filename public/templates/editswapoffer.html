@@ -1,0 +1,133 @@
+<!-- Main content -->
+<section class="container">
+	<i class="fa fa-arrow-left"></i> <a href="#/offersswap">Back</a><br>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" ng-submit="editOffer()" autocomplete="off" name="newswapofferForm">
+                <div class="box-body">
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label for="usernamefk">Name of Counter Party</label>
+                    		    <input class="form-control" type="text" id="usernamefk" ng-model="newswapoffer.usernamefk" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Buy/Sell</label>
+                                <input type="text" class="form-control" id="buysellbank" ng-model="newswapoffer.buysellbank_disp" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Currency Pair</label>
+                                <input type="text" class="form-control" id="ccypair" ng-model="newswapoffer.ccypair" required ng-disabled=true>
+                    		</div>
+                    </div>
+                        <div class="row">
+                    		
+                    		<div class="col-md-3">
+                    		    <label>Near Spot</label>
+                                <input type="text" class="form-control" id="nearspot" ng-model="newswapoffer.nearspot" ng-blur="fill()">
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Margin</label>
+                                <input type="text" class="form-control" id="nearmargin" ng-model="newswapoffer.nearmargin" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Near Rate</label>
+                                <input type="text" class="form-control" id="nearfinal" ng-model="newswapoffer.nearfinal" ng-disabled=true>
+                    		</div>
+                    	</div>
+                    	<div class="row">	
+                    		<div class="col-md-3">
+                    		    <label>Near Leg Buy Amount</label>
+                    		    <div class="input-group">
+                                    <div class="input-group-addon">
+                                        {{newswapoffer.nearbuyorderamountccy_disp}}
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="newswapoffer.nearbuyorderamount_disp" required>
+                                </div>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Near Leg Sell Amount</label>
+                    		    <div class="input-group">
+                                    <div class="input-group-addon">
+                                        {{newswapoffer.nearsellorderamountccy_disp}}
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="newswapoffer.nearsellorderamount_disp" required>
+                                </div>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Near Leg Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newswapoffer.neardate" required ng-disabled=true></input>
+                                    </div>
+                    		</div>
+                    	</div>
+                    	<div class="row">
+                    		<div class="col-md-3">
+                    		    <label>Far Trade Spot</label>
+                                <input type="text" class="form-control" id="farspotrate" ng-model="newswapoffer.farspot" ng-blur="fill_far()" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Far points</label>
+                                <input type="text" class="form-control" id="farmagin" ng-model="newswapoffer.farmargin" ng-blur="fill_far()" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Far Rate</label>
+                                <input type="text" class="form-control" id="farofferedrate" ng-model="newswapoffer.farfinal" required>
+                    		</div>
+                    	</div>
+                    	<div class="row">	
+                    		<div class="col-md-3">
+                    		    <label>Far Leg Buy Amount</label>
+                    		    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            {{newswapoffer.farbuyorderamountccy_disp}}
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newswapoffer.farbuyorderamount_disp" required>
+                                </div>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Far Leg Sell Amount</label>
+                    		    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            {{newswapoffer.farsellorderamountccy_disp}}
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newswapoffer.farsellorderamount_disp" required>
+                                </div>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Far Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newswapoffer.fardate" required ng-disabled=true></input>
+                                    </div>
+                    		</div>
+                    	</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Customer Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newswapoffer.custcomment" ng-disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Bank Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newswapoffer.bankcomment"></textarea>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+                <div>
+                    <a href="" class="btn btn-danger" ng-click="btnCancel()" ng-show="showedit">Cancel</a>
+                    <button type="submit" class="btn btn-info" ng-click="" ng-disabled="newswapofferForm.$invalid" ng-show="showedit">Update</button>
+                    <a href="" class="btn btn-info" ng-click="btnEdit()" ng-show="!showedit">Edit</a>
+                    <a href="" class="btn btn-danger" ng-click="deleteOffer()" ng-show="!showedit">Withdraw</a>
+                    <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</section>

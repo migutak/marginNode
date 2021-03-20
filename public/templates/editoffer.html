@@ -1,0 +1,84 @@
+<!-- Main content -->
+<section class="container">
+    <i class="fa fa-arrow-left"></i> <a href="#/offers">Back</a><br>
+    <b>Edit Offer</b>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" ng-submit="editOffer()" autocomplete="off" name="editofferForm" class="form-horizontal">
+                <div class="form-group">
+				    <label class="col-xs-4 control-label">Counter Party</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="counterparty" ng-model="editoffer.usernamefk" required ng-disabled=true>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Buy/Sell</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="currency" ng-model="editoffer.buysellbank" required ng-disabled=true>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Currency Pair</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="currency" ng-model="editoffer.ccypair" required ng-disabled=true>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Order Amount</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="amount" ng-model="editoffer.orderamount" required ng-disabled=true>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Near Spot</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="spotrate" ng-model="editoffer.spotrate" required>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Margin</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="magin" ng-model="editoffer.magin" ng-blur="fill()" required>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Offered Rate</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="offeredrate" ng-model="editoffer.offeredrate" required ng-disabled=true>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Settlement amount</label>
+				    <div class="col-xs-5 selectContainer">
+				       <input type="text" class="form-control" id="settleamount" ng-model="editoffer.settleamount" required ng-disabled=true>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-4 control-label">Settlement Date</label>
+				        <div class="col-xs-5 selectContainer">
+                            <input type="text" class="form-control" ng-model="editoffer.settlementdate" ng-disabled=true></input>
+                        </div>
+				</div>
+                <div class="box-body">
+                     <div class="form-group">
+                        <label>Customer Comment</label>
+                        <textarea class="form-control" id="comment" ng-model="editoffer.comment" ng-disabled=true></textarea>
+                    </div>
+                </div>
+                <div class="box-body">
+                     <div class="form-group">
+                        <label>Bank Comment</label>
+                        <textarea class="form-control" id="offercomment" ng-model="editoffer.offercomment" ></textarea>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" ng-disabled="editofferForm.$invalid" ng-show="showedit">Update</button>
+                    <a href="" ng-click="btnCancel()" class="btn btn-danger" ng-show="showedit">Cancel</a>
+                    <a href="" ng-click="btnEdit()" class="btn btn-primary" ng-show="!showedit">Edit</a>
+                    <a href="" ng-click="deleteOffer(editoffer.orderindex)" class="btn btn-danger" ng-show="!showedit">Withdraw</a>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</section>

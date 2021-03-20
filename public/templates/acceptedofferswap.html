@@ -1,0 +1,50 @@
+<!-- Main content -->
+<div class="container">
+    <a href="#/acceptedoffers">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | 
+    <b>Forex Swap <span class="label label-info">{{swapnotification}}</span></b> | 
+    <a href="#/acceptedofferforward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a> | 
+    <a href="#/acceptedoffermm"> Money Markets <span class="label label-info">{{mmnotification}}</span></a>
+
+    <h3>Swap Accepted Offers</h3>
+</div>
+
+    <div class="row">
+        <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Deal Number</th>
+                                    <th>Customer Name</th>
+                                    <th>Currency Pair</th>
+                                    <th>Buy/Sell</th>
+                                    <th>Deal Details</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in swapoffers">
+                                    <td><a class="btn btn-info" href="#/bookswapdeal/{{ord.offerid}}"><i class="fa fa-gavel"></i> Book Ticket</a></td>
+                                    <td>{{ord.orderidfk}}</td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>
+                                        <p>{{ord.buysellbank}}</p>
+                                        <p>{{ord.buysell}}</p>
+                                    </td>
+                                    <td>
+                                        <p>L1: {{ord.recbank}} Amount: {{ord.nearbuyorderamountccy}} {{ord.nearbuyorderamount | number:2}} | {{ord.paybank}} Amount: {{ord.nearsellorderamountccy}} {{ord.nearsellorderamount}} | Near Rate: {{ord.nearfinal | number}}</p>
+                                        <p>L2: {{ord.paybank}} Amount: {{ord.farsellorderamountccy}} {{ord.farsellorderamount | number:2}} | {{ord.recbank}} Amount: {{ord.farbuyorderamountccy}} {{ord.farbuyorderamount}} | Far Rate: {{ord.farfinal | number}}</p>
+                                        
+                                    </td>
+                                    <td>
+                                        <p>{{ord.neardate}}</p>
+                                        <p>{{ord.fardate}}</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>

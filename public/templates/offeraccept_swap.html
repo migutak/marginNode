@@ -1,0 +1,123 @@
+<!-- Main content -->
+<section class="container">
+<i class="fa fa-arrow-left"></i> <a href="#/homeswap">Back</a>
+<div class="row">
+            	<div class="cloading"></div>
+                <form ng-submit="accept()" method="post" id="swaporderform" class="form-horizontal">
+                	<p>__________ Near Leg __________</p>
+                	<div class="form-group">
+				    	<label class="col-xs-3 control-label">Currency pair</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <input type="text" class="form-control" ng-model="acceptofferswap.ccypair" disabled>
+				    	</div>
+				    </div>
+	                <div class="form-group">
+				        <label class="col-xs-3 control-label">Buy/Sell</label>
+				        <div class="col-xs-5 selectContainer">
+				            <input type="text" class="form-control" ng-model="acceptofferswap.buysell_disp" disabled>
+				        </div>
+				    </div>
+				    
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Near Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="datepicker" id="neardate" name="neardate" ng-model="acceptofferswap.neardate" required/>
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Offered Near Rate</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <input type="text" class="form-control" ng-model="acceptofferswap.nearfinal" disabled>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptofferswap.nearbuyorderamountccy_disp}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptofferswap.nearbuyorderamount_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptofferswap.nearsellorderamountccy_disp}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptofferswap.nearsellorderamount_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <p>__________ Far Leg __________</p>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Far Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="datepicker" id="fardate" name="fardate" ng-model="acceptofferswap.fardate" required/>
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Offered Far Rate</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <input type="text" class="form-control" ng-model="acceptofferswap.farfinal" disabled>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptofferswap.farbuyorderamountccy_disp}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptofferswap.farbuyorderamount_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{acceptofferswap.farsellorderamountccy_disp}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="acceptofferswap.farsellorderamount_disp" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Offered By (Bank)</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <input type="text" class="form-control" ng-model="acceptofferswap.offeredby" disabled>
+				    	</div>
+				    </div>
+				    
+                    <div class="form-group">
+                    	<label class="col-xs-3 control-label">Bank Comment</label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="acceptofferswap.comment" disabled></textarea>
+                    	</div>
+                    </div>
+                    <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<a class="btn btn-danger" href="#/homeswap">Cancel</a> 
+                    		<button type="submit" class="btn btn-info">Confirm Accept</button>
+                    		<img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                    	</div>
+                    </div>
+                </form>
+            </div>
+</section>

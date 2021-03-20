@@ -1,0 +1,215 @@
+<!-- Main content -->
+        <section class="content">
+        	<!-- Info boxes -->
+          <div class="row">
+          	<div class="col-md-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">{{name}}</span>
+                  <span class="info-box-number">Address: {{}}</span>
+                  <span class="info-box-text">Tel: {{}}</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          
+          <div class="row">
+          	<div class="col-md-2">
+          		<ul class="nav nav-pills nav-stacked">
+				    <li class="active"><a data-target="#home" data-toggle="tab">Contacts</a></li>
+				    <li><a data-target="#users" data-toggle="tab">Users</a></li>
+				    <li><a data-target="#accounts" data-toggle="tab">Accounts</a></li>
+				    <li><a data-target="#banks" data-toggle="tab">Banks</a></li>
+				</ul>
+				
+          	</div>
+          	<div class="col-md-10">
+          		<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+				      <h3>Contacts</h3>
+				      <hr>
+				      <p>City Centre</p>
+				      <p>xxxx xxx Road, PO Box xxxx, 00200</p>
+				      <p>Nairobi, Kenya</p>
+				      <p>Tel:</p>
+				      <p>Email:</p>
+				      <p>Fax:</p>
+				    </div>
+				    <div id="users" class="tab-pane fade">
+				      <div class="box box-info">
+				      	<div class="box-header with-border">
+		                  <h3 class="box-title">Users</h3>
+		                </div><!-- /.box-header -->
+		                <div class="box-body">
+		                	<div class="table-responsive">
+		                		<table class="table no-margin">
+		                			 <thead>
+				                        <tr>
+				                          <th>User ID</th>
+				                          <th>Full Name</th>
+				                          <th>Status</th>
+				                          <th>Last Login</th>
+				                        </tr>
+				                      </thead>
+				                      <tbody>
+				                      	<tr>
+				                          <td><a href="">OR9842</a></td>
+				                          <td>User1</td>
+				                          <td><span class="label label-success">Active</span></td>
+				                          <td></td>
+				                        </tr>
+				                        <tr>
+				                          <td><a href="">OR1848</a></td>
+				                          <td>User2</td>
+				                          <td><span class="label label-warning">Active</span></td>
+				                          <td></td>
+				                        </tr>
+				                        <tr>
+				                          <td><a href="">OR7429</a></td>
+				                          <td>User3</td>
+				                          <td><span class="label label-danger">Locked Out</span></td>
+				                          <td></td>
+				                        </tr>
+				                        <tr>
+				                          <td><a href="">OR7429</a></td>
+				                          <td>User4</td>
+				                          <td><span class="label label-info">Active</span></td>
+				                          <td></td>
+				                        </tr>
+				                      </tbody>
+		                		</table>
+		                	</div>
+		                </div>
+		                <div class="box-footer clearfix">
+		                  <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">New User</a>
+		                </div><!-- /.box-footer -->
+				      </div>
+				    </div>
+				    <div id="accounts" class="tab-pane fade">
+				      <div class="box box-primary">
+				      	<div class="box-header">
+		                  <i class="ion ion-clipboard"></i>
+		                  <h3 class="box-title">Accounts</h3>
+		                </div><!-- /.box-header -->
+				      </div>
+				      <div class="box-body">
+				      	<ul class="todo-list">
+				      		<li>
+		                      <!-- todo text -->
+		                      <span class="text">0100009340989</span>
+		                      <!-- Emphasis label -->
+		                      <small class="label label-danger"><i class="fa fa-clock-o"></i>EUR</small>
+		                      <!-- General tools such as edit or delete-->
+		                      <div class="tools">
+		                        <i class="fa fa-edit"></i>
+		                        <i class="fa fa-trash-o"></i>
+		                      </div>
+		                    </li>
+		                    <li>
+		                      <!-- todo text -->
+		                      <span class="text">0100009340989</span>
+		                      <!-- Emphasis label -->
+		                      <small class="label label-danger"><i class="fa fa-clock-o"></i>EUR</small>
+		                      <!-- General tools such as edit or delete-->
+		                      <div class="tools">
+		                        <i class="fa fa-edit"></i>
+		                        <i class="fa fa-trash-o"></i>
+		                      </div>
+		                    </li>
+		                    <li>
+		                      <!-- todo text -->
+		                      <span class="text">0100009340989</span>
+		                      <!-- Emphasis label -->
+		                      <small class="label label-danger"><i class="fa fa-clock-o"></i>EUR</small>
+		                      <!-- General tools such as edit or delete-->
+		                      <div class="tools">
+		                        <i class="fa fa-edit"></i>
+		                        <i class="fa fa-trash-o"></i>
+		                      </div>
+		                    </li>
+				      	</ul>
+				      </div>
+				      <div class="box-footer clearfix no-border">
+		                  <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add Account</button>
+		              </div>
+				    </div>
+				    <div id="banks" class="tab-pane fade">
+				      <div class="box box-primary">
+		                <div class="box-header">
+		                  <i class="fa fa-university"></i>
+		                  <h3 class="box-title">My Banks</h3>
+		                </div><!-- /.box-header -->
+		                <div class="box-body">
+		                  <ul class="todo-list" ng-repeat="c in banklist">
+		                    <li>
+		                      <!-- todo text -->
+		                      <span class="text">{{c.bankname}}</span>
+		                      <!-- Emphasis label -->
+		                      <small class="label label-info">{{}}</small>
+		                      <!-- General tools such as edit or delete <i class="fa fa-clock-o"></i>-->
+		                      <div class="tools">
+		                        <i class="fa fa-edit"></i>
+		                        <i class="fa fa-trash-o"></i>
+		                      </div>
+		                    </li>
+		                  </ul>
+		                </div><!-- /.box-body -->
+		                <div class="box-footer clearfix no-border">
+		                  <button class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Bank</button>
+		                </div>
+		              </div><!-- /.box -->
+				    </div>
+				</div>
+          	</div>
+          </div>
+       </section>
+       
+       <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Bank</h4>
+      </div>
+      <div class="modal-body">
+        	<form ng-submit="savebank()" id="addbankform" class="form-horizontal">
+        			<div class="form-group">
+				    	<label class="col-xs-3 control-label">Bank ID</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<select class="form-control" ng-model="newbank.bankid" required>
+							    <option>bank1</option>
+								<option>bank2</option>
+								<option>bank3</option>
+							</select>
+				    	</div>
+				    </div><br>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Bank Name</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<select class="form-control" ng-model="newbank.name" required>
+							    <option>Bank 1</option>
+								<option>Bank 2</option>
+								<option>Bank 3</option>
+							</select>
+				    	</div>
+				    </div>
+        			<div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<button type="submit" class="btn btn-info" ng-disabled="addbankform.$invalid">Save</button>
+                    		
+                    	</div>
+                    </div>
+        	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

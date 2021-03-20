@@ -1,0 +1,46 @@
+<!-- Main content -->
+<div class="container">
+    <a href="#/offers">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | 
+    <a href="#/offersswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | 
+    <b>Forex Forward <span class="label label-danger">{{forwardnotification}}</span></b> | 
+    <a href="#/offersmm">Money Market <span class="label label-info">{{mmnotification}}</span></a>
+</div>
+<h3> Offers made : Forward</h3>
+<section class="content">
+<i class="fa fa-arrow-left"></i> <a href="#/homemm">Home</a>
+<div class="cloading"></div>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th>View</th>
+                                    <th>Deal ID</th>
+                                    <th>Customer</th>
+                                    <th>Ccy pair</th>
+                                    <th>Order amount</th>
+                                    <th>Schedule</th>
+                                    <th>No of schedule</th>
+                                    <th>Settlement amount</th>
+                                    <th>Rate Offered</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in offersforward">
+                                    <td><a class="btn btn-info" href="#/editforwardoffer/{{ord.offerid}}"><i class="fa fa-pencil"></i></a></td>
+                                    <td>{{ord.orderidfk}}</td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>{{ord.orderamountccy}} {{ord.orderamount | number}}</td>
+                                    <td>{{ord.freq}}</td>
+                                    <td>{{ord.freqnum}}</td>
+                                    <td>{{ord.settlementamountccy}} {{ord.settlementamount}}</td>
+                                    <td>{{ord.finalrate}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>
+</section>

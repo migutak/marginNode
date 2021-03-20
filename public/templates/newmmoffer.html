@@ -1,0 +1,101 @@
+<!-- Main content -->
+<div class="cloading"></div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" ng-submit="newmmOffer()" autocomplete="off" name="newmmofferForm">
+                <div class="box-body">
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label for="usernamefk">Counter Party</label>
+                    		    <input class="form-control" type="text" id="usernamefk" ng-model="newmmoffer.usernamefk" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Currency</label>
+                                <input type="text" class="form-control" id="ccy" ng-model="newmmoffer.ccy" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Nominal Amount</label>
+                                <input type="text" class="form-control" id="orderamount" ng-model="newmmoffer.orderamount" required ng-disabled=true>
+                    		</div>
+                    </div>
+                        <div class="row">
+                    		
+                    		<div class="col-md-3">
+                    		    <label>Rate in %</label>
+                                <input type="text" class="form-control" id="rate" ng-model="newmmoffer.rate" required ng-blur="fill()">
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Total Interest</label>
+                                <input type="text" class="form-control" id="totalinterest" ng-model="newmmoffer.totalinterest" disabled>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Withholding Tax</label>
+                                <input type="text" class="form-control" id="tax" ng-model="newmmoffer.tax" required ng-disabled=true>
+                    		</div>
+                    	</div>
+                    <div class="row">
+                            <div class="col-md-3">
+                    		    <label>Tenor</label>
+                                <input type="text" class="form-control" id="tenuredays" ng-model="newmmoffer.tenuredays" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Net Interest</label>
+                                <input type="text" class="form-control" id="mmtype" ng-model="newmmoffer.netinterest" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Deal Type</label>
+                                <input type="text" class="form-control" id="dealtype" ng-model="newmmoffer.dealtype" required ng-disabled=true>
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <!-- Date dd/mm/yyyy -->
+                                <div class="form-group">
+                                    <label>From</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newmmoffer.mmfrom" required ng-disabled=true></input>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <!-- Date dd/mm/yyyy -->
+                                <div class="form-group">
+                                    <label>From</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" ng-model="newmmoffer.mmto" required ng-disabled=true></input>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form group -->
+                    		</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Customer Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newmmoffer.custcomment" ng-disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Bank Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newmmoffer.bankcomment" ></textarea>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+                <div>
+                    <a href="#/homemm" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-primary" ng-disabled="newmmofferForm.$invalid">Submit</button>
+                    <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</section>

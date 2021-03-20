@@ -1,0 +1,189 @@
+<!-- daterange picker -->
+<link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+     
+<div class="content" cg-busy="{promise:promise,templateUrl:templateUrl,message:'Data being submitted',backdrop:backdrop,delay:0,minDuration:700}">
+	 <a href="#/neworder">Forex Spot</a> | <b>Forex Swap</b> | <a href="#/newforward">Forex Forward</a> | <a href="#/newmoneymarket">Money Market</a>
+	 <section class="content">
+        	<h1 class="container">Forex Swap</h1>
+            <div class="row">
+            	<div class="cloading"></div>
+                <form ng-submit="save_swapOrder()" method="post" id="newswaporderform" class="form-horizontal">
+                	<div class="form-group">
+				    	<label class="col-xs-3 control-label">Near and far date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="nearandfardate" ng-model="newswaporder.nearandfardate" />
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+                	<p>__________ Near Leg __________</p>
+                	<div class="form-group">
+				    	<label class="col-xs-3 control-label">Currency pair</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<select class="form-control" ng-model="newswaporder.ccypair" required>
+							    <option>USD/KES</option>
+								<option>KES/UGX</option>
+								<option>KES/TZS</option>
+								<option>EUR/KES</option>
+								<option>GBP/KES</option>
+								<option>CAD/KES</option>
+								<option>AUD/KES</option>
+								<option>ZAR/KES</option>
+								<option>JPY/KES</option>
+								<option>RUB/KES</option>
+								<option>BRL/KES</option>
+								<option>EUR/USD</option>
+								<option>GBP/USD</option>
+							</select>
+				    	</div>
+				    </div>
+	                <div class="form-group">
+				        <label class="col-xs-3 control-label">Buy/Sell</label>
+				        <div class="col-xs-5 selectContainer">
+				            <select name="colors" class="form-control" ng-model="newswaporder.buysell" required>
+				                <option value="BUY">BUY <small>Leg 1</small> - SELL <small>Leg 2</small></option>
+							    <option value="SELL">SELL <b>leg 1</b> - BUY <small>leg 2</small></option>
+				            </select>
+				        </div>
+				    </div>
+				    
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Near Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right datepicker" id="neardate" name="neardate" ng-model="newswaporder.neardate" required disabled/>
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.nearbuyorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.nearbuyorderamount" ng-blur="setfunct()">
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.nearsellorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.nearsellorderamount" ng-blur="setfunct2()">
+				    		</div>
+				    	</div>
+				    </div>
+				    <p>__________ Far Leg __________</p>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Far Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right datepicker" id="fardate" name="fardate" ng-model="newswaporder.fardate" required disabled/>
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.farbuyorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.farbuyorderamount" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.farsellorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.farsellorderamount" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Select Bank(s)</label>
+				    	<div class="col-xs-4 selectContainer">
+						    <select class="form-control select2" multiple="multiple" data-placeholder="Select Bank(s)" ng-model="newswaporder.bank">
+		                      <option ng-repeat="option in banks" value="{{option.bankid}}">{{option.bankname}}</option>
+		                    </select>
+				    	</div>
+				    	<div class="col-xs-3 selectContainer"><input type="checkbox" ng-model="newswaporder.mybanks" name="mybanks" /><span class="text"> My Banks</span></div>
+				    </div>
+				    
+                    <div class="form-group">
+                    	<label class="col-xs-3 control-label">Comment</label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="newswaporder.custcomment"></textarea>
+                    	</div>
+                    </div>
+                    <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<a class="btn btn-danger" href="#/">Cancel</a> 
+                    		<button type="submit" class="btn btn-info" ng-disabled="neworderform.$invalid">Submit</button>
+                    		<img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                    	</div>
+                    </div>
+                </form>
+            </div>
+        </section>
+</div>
+<style type="text/css">
+#bootstrapSelectForm .selectContainer .form-control-feedback {
+    /* Adjust feedback icon position */
+    right: -15px;
+}
+</style>
+
+<!-- Select2 -->
+    <link href="plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+ <!-- Select2 -->
+    <script src="plugins/select2/select2.full.min.js" type="text/javascript"></script> 
+    <!-- date-range-picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js" type="text/javascript"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script> 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker(
+        	'deselectAll'
+        );
+        //Initialize Select2 Elements
+        $(".select2").select2();
+        //Date range picker
+        $('#nearandfardate').daterangepicker({
+        	format:'DD-MM-YYYY',
+        	minDate: moment(),
+        	showDropdowns : true,
+        	daysOfWeekDisabled:[0,6]
+        });
+        //date picker 1
+        /*$(".datepicker").datepicker({
+          autoclose: true,
+          format:'dd-mm-yyyy',
+          daysOfWeekDisabled:[0,6],
+          clearBtn: true,
+          orientation: "auto top",
+          todayHighlight:true,
+          startDate: '0d'
+        }); */
+    });
+</script>
+    

@@ -1,0 +1,87 @@
+<!-- Main content -->
+<section class="container">
+    <i class="fa fa-arrow-left"></i> <a href="#/offersmm">Back</a><br>
+    <b>Edit Money market offer</b>
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="cloading"></div>
+            <form method="post" ng-submit="editmmOffer()" autocomplete="off" name="editofferForm" class="form-horizontal">
+                <div class="box-body">
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label for="usernamefk">Counter Party</label>
+                    		    <input class="form-control" type="text" id="usernamefk" ng-model="newmmoffer.usernamefk" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Currency</label>
+                                <input type="text" class="form-control" id="ccy" ng-model="newmmoffer.ccy" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Nominal Amount</label>
+                                <input type="text" class="form-control" id="orderamount" ng-model="newmmoffer.orderamount" required ng-disabled=true>
+                    		</div>
+                    </div>
+                        <div class="row">
+                    		<div class="col-md-3">
+                    		    <label>Rate %</label>
+                                <input type="text" class="form-control" id="rate" ng-model="newmmoffer.fixedrate" required ng-blur="fill()">
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Total Interest</label>
+                                <input type="text" class="form-control" id="totalinterest" ng-model="newmmoffer.totalinterest" disabled>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Withholding Tax</label>
+                                <input type="text" class="form-control" id="tax" ng-model="newmmoffer.tax" required ng-disabled=true>
+                    		</div>
+                    	</div>
+                    <div class="row">
+                            <div class="col-md-3">
+                    		    <label>Day Count</label>
+                                <input type="text" class="form-control" id="tenuredays" ng-model="newmmoffer.tenuredays" required>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Net Interest</label>
+                                <input type="text" class="form-control" id="mmtype" ng-model="newmmoffer.netinterest" required ng-disabled=true>
+                    		</div>
+                    		<div class="col-md-3">
+                    		    <label>Deal Type</label>
+                                <input type="text" class="form-control" id="dealtype" ng-model="newmmoffer.mmtypebank" required ng-disabled=true>
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label>From</label>
+                                <input type="text" class="form-control" ng-model="newmmoffer.mmfrom" required ng-disabled=true></input>
+                    		</div>
+                    </div>
+                    <div class="row">
+                    		<div class="col-md-3">
+                    		    <label>To</label>
+                                <input type="text" class="form-control" ng-model="newmmoffer.mmto" required ng-disabled=true></input>
+                    		</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Customer Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newmmoffer.custcomment" ng-disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Bank Comment</label>
+                            <textarea class="form-control" id="comment" ng-model="newmmoffer.bankcomment" ></textarea>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+                <div>
+                    <button type="submit" class="btn btn-info" ng-disabled="editofferForm.$invalid" ng-show="showedit">Update</button>
+                    <a href="" ng-click="btnEdit()" class="btn btn-info" ng-show="!showedit">Edit</a>
+                    <a href="" ng-click="deleteOffer(newmmoffer.offerid)" class="btn btn-danger" ng-show="!showedit">Withdraw</a>
+                    <a href="" ng-click="btnCancel()" class="btn btn-danger" ng-show="showedit">Cancel</a>
+                    <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

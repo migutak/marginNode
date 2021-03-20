@@ -1,0 +1,114 @@
+<!-- Main content -->
+<section class="content">
+<i class="fa fa-arrow-left"></i> <a href="#/acceptedoffers">Back</a>
+    <div class="row">
+        <div class="container">
+        	<div class="row" align="center">
+        		<p style="font-size: 40px">BANK OF KENYA</p>
+        		<p style="font-size: 40px">DEAL TICKET FXSPOT</p>
+        		<p><b>Deal Status : NEW</b></p>
+        		<!--<div class="col-md-12" align="right" ><div class="col-md-12" align="right" ><img src="images/Diamond_Bank_Logo.jpg" height="100" width="242"></img></div></div>-->
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6"><b>Trade Information</b></div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Trade date and time:</div>
+        		<div class="col-md-6">{{booking.orderdate}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Ticket ID:</div>
+        		<div class="col-md-6">3678169</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Trader:</div>
+        		<div class="col-md-6">{{booking.recipient}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Counterparty:</div>
+        		<div class="col-md-6">{{booking.usernamefk}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Core Banking Branch:</div>
+        		<div class="col-md-6">ForexTrading</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Book:</div>
+        		<div class="col-md-6">KES.FX.RETAIL</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Reuters ID:</div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Broker Code:</div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Broker:</div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Broker Basis Points:</div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Maturity date:</div>
+        		<div class="col-md-6">{{booking.settlementdate}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">{{booking.buysellrec}} Currency and amount:</div>
+        		<div class="col-md-6">{{booking.ccypair | limitTo:-lim}} {{booking.settleamount | number}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">{{booking.buysellrec2}} Currency and amount:</div>
+        		<div class="col-md-6">{{booking.ccypair | limitTo:lim}} {{booking.orderamount | number}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Spot rate:</div>
+        		<div class="col-md-6">{{booking.offeredrate}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Forward points:</div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Forward rate:</div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6"><b>**** Settlement Instructions ****</b></div>
+        		<div class="col-md-6"></div>
+        	</div>
+		    <div class="row">
+		        <div class="col-md-2" style="border: 1px solid blue">Settlement Date</div>
+		        <div class="col-md-2" style="border: 1px solid blue">Pay/Rec</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Amount</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Ccy</div>
+		        <div class="col-md-2" style="border: 1px solid blue">Receiver</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Intermediary</div>
+			</div>
+			<div class="row">
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.settlementdate}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.pay}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.settleamount | number}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccypair | limitTo:-lim}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">COMMERZBANK FRA</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
+			</div>
+			<div class="row">
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.settlementdate}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.rec}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.orderamount | number}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccypair | limitTo:lim}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">ALL/ABCD/ANY/</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
+			</div>
+			<br>
+			<div class="row">
+        		<button class="btn btn-info" ng-click="custconfirm()">Book Deal</button>
+        	</div>
+		</div>
+    </div>
+</section>

@@ -1,0 +1,81 @@
+<!-- Main content -->
+<section class="container">
+<i class="fa fa-arrow-left"></i> <a href="#/homeforward">Back</a>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" ng-submit="accept()" autocomplete="off" name="acceptForm" class="form-horizontal">
+                    <div class="form-group">
+				        <label class="col-xs-3 control-label">Order ID</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.orderidfk" required ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Ccy Pair</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.ccypair" ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">BUY/SELL</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.buysell" ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">BUY amount ({{acceptoffer.buyorderamountccy}})</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.buyorderamount" ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">SELL amount ({{acceptoffer.sellorderamountccy}})</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.sellorderamount" ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Offered Rate</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.finalrate" required ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Start Date</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.startdate" required ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Frequency</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.freq" required ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">No of Frequency</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.freqnum" required ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Settlement amount ({{acceptoffer.settlementamountccy}})</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.settlementamount" ng-disabled=true>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Offer By (Bank)</label>
+				        <div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="acceptoffer.offeredby" required ng-disabled=true>
+				    	</div>
+				    </div>
+				    
+				   
+                <div>
+                    <button type="submit" class="btn btn-success" ng-disabled="acceptForm.$invalid">Confirm Acceptance</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

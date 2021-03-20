@@ -1,0 +1,66 @@
+<!-- Main content -->
+<div class="container">
+    <a href="#/acceptedoffers">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | 
+    <a href="#/acceptedofferswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | 
+    <a href="#/acceptedofferforward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a> | 
+    <b>Money Markets <span class="label label-info">{{mmnotification}}</span></b>
+
+    <h3>Money markets accepted offers</h3>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Order Date</th>
+                                    <th>Type</th>
+                                    <th>Customer Name</th>
+                                    <th>Nominal Amount</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Rate</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in mmoffers">
+                                    <td><a class="btn btn-info" href="#/bookmmdeal/{{ord.offerid}}"><i class="fa fa-gavel"></i> Book Ticket</a></td>
+                                    <td>{{ord.orderdate}}</td>
+                                    <td>{{ord.mmtypebank}}</td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.ccy}} {{ord.orderamount | number}}</td>
+                                    <td>{{ord.mmfrom}}</td>
+                                    <td>{{ord.mmto}}</td>
+                                    <td>{{ord.fixedrate}}%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <tbody>
+                                <tr ng-repeat="ord in buyoffers">
+                                    <td><a class="btn btn-info" href="#/bookdeal/{{ord.offerid}}"><i class="fa fa-gavel"></i> Book Ticket</a></td>
+                                    <td>{{ord.orderdate}}</td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>{{ord.buysellbank}}</td>
+                                    <td>
+                                        <p>{{ord.recbank}} Amount: {{ord.ccypair | limitTo : ord.limitnum}} {{ord.settleamount | number}}</p>
+                                        <p>Rate: {{ord.offeredrate | number}}</p>
+                                        <p>{{ord.paybank}} Amount: {{ord.ccypair | limitTo : -ord.limitnum}} {{ord.orderamount | number}}</p>
+                                    </td>
+                                    <td>{{ord.settlementdate}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+    </div>

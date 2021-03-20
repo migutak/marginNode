@@ -1,0 +1,68 @@
+<style type="text/css">
+    li {list-style-type: none;}
+</style>
+<div class="container">
+    <a href="#/payments">Forex Spot <span class="label label-info">{{payments_spot_notification}}</span></a> | 
+    <b>Forex Swap <span class="label label-danger">{{payments_swap_notification}}</span></b> | 
+    <a href="#/paymentforward">Forex Forward <span class="label label-info">{{payments_forward_notification}}</span></a> |
+    <a href="#/paymentmm"> Money Markets <span class="label label-info">{{payments_mm_notification}}</span></a>
+</div>
+<h3></h3>
+ <div class="container">
+            <ul>
+                <li class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">Swap payments <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="" ng-click="archiveBtn_swap('ALL')">All <span class="label label-success">{{all_swap_notification}}</span></a></li>
+                    <li><a href="" ng-click="archiveBtn_swap('PAID')">Paid <span class="label label-success">{{paid_swap_notification}}</span></a></li>
+                    <li><a href="" ng-click="archiveBtn_swap('NOT PAID')">Not Paid <span class="label label-success">{{notpaid_swap_notification}}</span></a></li>
+                  </ul>
+                </li>
+            </ul>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Confirmed Deals</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                          <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <th>Bank name</th>
+                              <th>Ccy pair</th>
+                              <th>Buy/Sell</th>
+                              <th>Near leg rate</th>
+                              <th>Far leg rate</th>
+                              <th>Status</th>
+                              <th>Near date</th>
+                              <th>Far date</th>
+                              <th>Payment</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="c in payments_swap">
+                              <td><a href="">{{c.orderidfk}}</a></td>
+                              <td>{{c.usernamefk}}</td>
+                              <td>{{c.ccypair}}</td>
+                              <td>{{c.buysell}}</td>
+                              <td>{{c.nearfinal}}</td>
+                              <td>{{c.farfinal}}</td>
+                              <td><span class="label label-success">{{c.confirm}}</span></td>
+                              <td>{{c.neardate}}</td>
+                              <td>{{c.fardate}}</td>
+                              <td>
+                                <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" ng-click="payswap(c.offerid)">
+                                        <span class="glyphicon glyphicon-ok"></span> Pay
+                                    </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>

@@ -1,0 +1,49 @@
+<!-- Main content -->
+<div class="container">
+    <a href="#/custconfirmations">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | 
+    <a href="#/custconfirmations_swap">Forex Swap <span class="label label-info">{{swapnotification}}</span></b> | 
+    <a href="#/custconfirmations_forward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a> | 
+    <b>Money Markets <span class="label label-info">{{mmnotification}}</span></b>
+</div>
+<h3>Moneymarkets Confimations</h3>
+<div class="cloading"></div>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Deal ID</th>
+                                    <th>Order Date</th>
+                                    <th>Type</th>
+                                    <th>BankName</th>
+                                    <th>Amount</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Rate</th>
+                                    <th>Total Interest</th>
+                                    <th>Withholding Tax</th>
+                                    <th>Net Total Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in toconfirmoffers">
+                                    <td><a class="btn btn-warning" href="#/confirmoffermm/{{ord.offerid}}"><i class="fa fa-check"></i>Confirm</a></td>
+                                    <td>{{ord.orderidfk}}</td>
+                                    <td>{{ord.orderdate}}</td>
+                                    <td>{{ord.mmtype}}</td>
+                                    <td>{{ord.offeredby}}</td>
+                                    <td>{{ord.ccy}} {{ord.orderamount | number:2}}</td>
+                                    <td>{{ord.mmfrom}}</td>
+                                    <td>{{ord.mmto}}</td>
+                                    <td>{{ord.fixedrate}}%</td>
+                                    <td>{{ord.totalinterest | number:2}}</td>
+                                    <td>{{ord.tax | number:2}}</td>
+                                    <td>{{ord.netamount | number:2}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>

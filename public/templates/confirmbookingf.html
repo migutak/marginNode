@@ -1,0 +1,126 @@
+<!-- Main content -->
+<section class="content">
+<i class="fa fa-arrow-left"></i> <a href="#/settlement/93">Back</a>
+    <div class="row">
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-12" align="right" ><img src="images/Diamond_Bank_Logo.jpg" height="100" width="242"></img></div>
+        	</div>
+        	
+        	<h2>(CONFIRMED) FOREIGN EXCHANGE SPOT CONFIRMATION</h2>
+
+        	<p>
+        		Date: {{booking.orderdate}}
+        	</p>
+        	<br>
+        	<div class="row">
+        		<div class="col-md-3">To:</div>
+        		<div class="col-md-3">{{booking.usernamefk}}</div>
+        		<div class="col-md-3">From:</div>
+        		<div class="col-md-3">{{booking.recipient}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Attention:</div>
+        		<div class="col-md-3">Finance Department</div>
+        		<div class="col-md-3">Attention:</div>
+        		<div class="col-md-3">Operations</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Fax:</div>
+        		<div class="col-md-3"></div>
+        		<div class="col-md-3">Tel:</div>
+        		<div class="col-md-3">+254 2012345678</div>
+        	</div>
+        	
+        	
+        	<h3>Subject:	Foreign Exchange Spot Transaction (Deal ID: WXYZ123)</h3>
+        	<p>
+        		1.	This “Trade Notification” confirms and notifies the Counterparty of the terms and conditions of the Transaction referred to above and entered into on the Trade Date specified below (the “Transaction”). 
+<br>
+				2.	The terms and conditions of the Bank’s standard Direct Dealing Mandate (“Mandate”) will be incorporated by reference, and will govern the Transaction, whether the Mandate was signed by the Counterparty or not.
+<br>
+				3.	The Counterparty must provide the Bank with its signed Payment Instructions on or before the Settlement Date. In the event that the Counterparty does not provide the Payment Instructions or cancel the Transaction, the Counterparty indemnifies the Bank, and will be liable for the Bank’s reversal/cancellation costs.   
+<br>
+			<b>4.	General Terms:</b>	
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Trade Date and Time:</div>
+        		<div class="col-md-2">{{booking.orderdate}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount and currency payable by the Bank:</div>
+        		<div class="col-md-2">{{booking.ccypair | limitTo:3}} {{booking.settleamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount and currency payable by the Counterparty:</div>
+        		<div class="col-md-2">{{booking.ccypair | limitTo:-3}} {{booking.orderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Spot Rate:</div>
+        		<div class="col-md-2">{{booking.offeredrate}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Settlement Date:</div>
+        		<div class="col-md-2">{{booking.settlementdate}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
+        	</div>
+        	<p>
+        		<b>5.	Settlement Details:</b><br><br>
+        		<b>We RECEIVE {{booking.ccypair | limitTo:3}} as below:</b>
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Account Name :</div>
+        		<div class="col-md-2">{{booking.recipient}} Bank</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Our SWIFT code:</div>
+        		<div class="col-md-2">XYZNKENX</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Account Number:</div>
+        		<div class="col-md-2">10000012345</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Correspondent bank:</div>
+        		<div class="col-md-2">Central Bank of Kenya</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Settlement date:</div>
+        		<div class="col-md-2">{{booking.settlementdate}}</div>
+        	</div>
+        	<br>
+        	<p>
+        		<b>We PAY {{booking.ccypair | limitTo:-3}} as below:</b>
+        	</p>
+        	<div class="row">
+        		<div class="col-md-3">Account Name:</div>
+        		<div class="col-md-2">{{booking.usernamefk}} Ltd</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Account Number:</div>
+        		<div class="col-md-2">000987654321</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Beneficiary Bank:</div>
+        		<div class="col-md-2">Standard Chartered Bank, Kenya Ltd</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">SWIFT code:</div>
+        		<div class="col-md-2">SCBLKENX</div>
+        	</div>
+        	<br>
+        	<p>
+        		6.	Settlement will be on a Delivery Versus Payment mode. The bank undertakes to pay the customer immediately we sight the corresponding credit, without fail.
+        	</p>
+        	<p>
+        		Kindly confirm that the details of these deals are correct by approving and returning to us.
+        	</p>
+        	<p>
+        		………………………………… <br>                                    
+				<h5>Authorized Signatory </h5>                                            
+				<h5>{{booking.usernamefk}}</h5>
+
+        	</p>
+        	
+		</div>
+    </div>
+</section>

@@ -1,0 +1,61 @@
+            <h3>
+              Forex Swap
+            </h3>
+        <div class="container">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Confirmed Deals</h3>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-reorder"></i> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a ng-click="$event.preventDefault();archiveBtn_swap('ALL')" href="">All</a></li>
+                      <li><a ng-click="$event.preventDefault();archiveBtn_swap('PAID')" href="">Confimed Paid</a></li>
+                      <li><a ng-click="$event.preventDefault();archiveBtn_swap('NOTPAID')" href="">Not Paid</a></li>
+                    </ul>                   
+                  </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                          <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <th>Customer name</th>
+                              <th>CCY pair</th>
+                              <th>Buy/Sell</th>
+                              <th>Near leg rate</th>
+                              <th>Far leg rate</th>
+                              <th>Near date</th>
+                              <th>Status</th>
+                              <th>Far date</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="c in confirmedswapoffers">
+                              <td><a href="">{{c.orderidfk}}</a></td>
+                              <td>{{c.usernamefk}}</td>
+                              <td>{{c.ccypair}}</td>
+                              <td>{{c.buysell}}</td>
+                              <td>{{c.nearfinal}}</td>
+                              <td>{{c.farfinal}}</td>
+                              <td>{{c.neardate}}</td>
+                              <td><span class="label label-success">{{c.status}}</span></td>
+                              <td>{{c.fardate}}</td>
+                              <td>
+                                <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" ng-click="payswap(c.offerid)">
+                                        <span class="glyphicon glyphicon-ok"></span> confirm
+                                    </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>

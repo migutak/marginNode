@@ -1,0 +1,121 @@
+<!-- Main content -->
+<section class="content">
+<i class="fa fa-arrow-left"></i> <a href="#/acceptedofferswap">Back</a>
+    <div class="row">
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-12" align="right" ><div class="col-md-12" align="right" ><img src="images/Diamond_Bank_Logo.jpg" height="100" width="242"></img></div></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Deal Status:</div>
+        		<div class="col-md-6">New</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6"><b>Trade Information</b></div>
+        		<div class="col-md-6"></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Trade date and time:</div>
+        		<div class="col-md-6">{{booking.createdate}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Deal Number:</div>
+        		<div class="col-md-6">{{booking.orderidfk}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Trader:</div>
+        		<div class="col-md-6">{{booking.recipient}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Counterparty:</div>
+        		<div class="col-md-6">{{booking.usernamefk}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Core Banking Branch:</div>
+        		<div class="col-md-6">ForexTrading</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Book:</div>
+        		<div class="col-md-6">KES.FX.RETAIL</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Reuters ID:</div>
+        		<div class="col-md-6">xxxx</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Broker Code:</div>
+        		<div class="col-md-6">xxxx</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Broker:</div>
+        		<div class="col-md-6">xxxx</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Broker Basis Points:</div>
+        		<div class="col-md-6">xxxx</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Far date:</div>
+        		<div class="col-md-6">{{booking.fardate}}</div>
+        	</div>
+        	<div class="row">__________ Near Leg __________</div>
+        	<div class="row">
+        		<div class="col-md-6">{{booking.recbank}} Amount:</div>
+        		<div class="col-md-6">{{booking.nearbuyorderamountccy}} {{booking.nearbuyorderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">{{booking.paybank}} Amount:</div>
+        		<div class="col-md-6">{{booking.nearsellorderamountccy}} {{booking.nearsellorderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Near Leg rate:</div>
+        		<div class="col-md-6">{{booking.nearfinal}}</div>
+        	</div>
+        	<div class="row">__________ Far Leg __________</div>
+        	<div class="row">
+        		<div class="col-md-6">{{booking.paybank}} Amount:</div>
+        		<div class="col-md-6">{{booking.farsellorderamountccy}} {{booking.farsellorderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">{{booking.recbank}} Amount:</div>
+        		<div class="col-md-6">{{booking.farbuyorderamountccy}} {{booking.farbuyorderamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">Far Leg rate:</div>
+        		<div class="col-md-6">{{booking.farfinal}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6"><b>__________ Settlement Instructions __________</b></div>
+        		<div class="col-md-6"></div>
+        	</div>
+		    <div class="row">
+		        <div class="col-md-2" style="border: 1px solid blue">Settlement Date</div>
+		        <div class="col-md-2" style="border: 1px solid blue">Leg</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Payment Details</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Payment Details</div>
+		        <div class="col-md-2" style="border: 1px solid blue">Receiver</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Intermediary</div>
+			</div>
+			<div class="row">
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.neardate}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Near Leg</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.recbank}} {{booking.nearbuyorderamountccy}} {{booking.nearbuyorderamount | number:2}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.paybank}} {{booking.nearsellorderamountccy}} {{booking.nearsellorderamount | number:2}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">COMMERZBANK FRA</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
+			</div>
+			<div class="row">
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.fardate}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Far Leg</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.paybank}} {{booking.farsellorderamountccy}} {{booking.farsellorderamount | number:2}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.recbank}} {{booking.farbuyorderamountccy}} {{booking.farbuyorderamount | number:2}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">ALL/ABCD/ANY/</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
+			</div>
+			<br>
+			<div class="row">
+        		<button class="btn btn-info" ng-click="custconfirm()">Book Deal</button>
+        	</div>
+		</div>
+    </div>
+</section>
