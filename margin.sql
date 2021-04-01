@@ -63,7 +63,8 @@ create table Forwardorders(
   freq varchar(100),
   freqnum int,
   startdate varchar(100),
-  currentstatus varchar(100) default 'N'
+  currentstatus varchar(100) default 'N',
+  settlementdate varchar(100)
 );
                   
 
@@ -152,6 +153,8 @@ create table banks (
 );
 
 select * from swaporders;
+select * from spotorders;
+select * from offers;
 
 insert into banks values
 ('bank1','Kenya Commercial Bank Limited'),
@@ -161,8 +164,9 @@ insert into banks values
 ('bank6','Bank of Baroda (Kenya) Limited')
 
 -- drop table offers;
-select * from offers;
-select * from spotorders;
+select * from offers_mm;
+select * from Moneymarketorders;
+update offers_mm set status= 'Open' where status is null;
 
 create table offers(
   offerid int auto_increment primary key,
@@ -179,10 +183,20 @@ create table offers(
   offercomment varchar(100) not null,
   bankuser varchar(100) not null,
   status varchar(100) default 'Open',
-  confirm varchar(100) default 'Pending'
+  confirm varchar(100) default 'Pending',
   confirmdate varchar(100)
 );
 
+
+select * from offers_forward;
+select * from Moneymarketorders;
+select * from swaporders;
+
+select distinct m.orderid,usernamefk,ccy,orderamount,mmfrom,mmto,tenuredays,
+custcomment,ordertypefk,mmtype,nOffers 
+ from Moneymarketorders m left outer join v_mmorders v on m.orderid=v.orderidfk 
+ where m.currentstatus in ('N','OfferReceived') and usernamefk = 'cust1@example.com';
+            
 create table offers_forward(
   offerid int auto_increment primary key,
   orderindex varchar(100),
@@ -190,15 +204,15 @@ create table offers_forward(
   spot float,
   margin float,
   finalrate float,
-  settlementamountccy float,
-  settlementamount float,
+  settlementamountccy varchar(100),
+  settlementamount varchar(100),
   settlementdate varchar(100),
   bankcomment varchar(100),
   offeredby varchar(100),
   bankuser varchar(100),
   orderdate varchar(100),
-  status varchar(100),
-  confirm varchar(100),
+  status varchar(100) default 'Open',
+  confirm varchar(100) default 'Pending',
   offerdate timestamp default current_timestamp,
   confirmdate varchar(100)
 );
@@ -241,7 +255,7 @@ insert into currencies values
 ('USD/KES','USD/KES'),
 ('KES/UGX','KES/UGX'),
 
---drop table offers_mm;
+truncate table Moneymarketorders;
 
 create table offers_mm (
   offerid int auto_increment not null primary key,

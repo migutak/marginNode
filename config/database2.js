@@ -1,4 +1,4 @@
 module.exports = {
   'secret': 'devdacticIsAwesome',
-  'database': 'mongodb://localhost/marginiq'
+  'database': process.env.MONGO_URL || 'mongodb://localhost/marginiq'
 };
